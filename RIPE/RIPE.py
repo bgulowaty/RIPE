@@ -21,7 +21,7 @@ import seaborn as sns
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score, r2_score
 from sklearn.utils import check_array
-from sklearn.externals.joblib import Parallel, delayed
+from joblib import Parallel, delayed
 
 """
 ---------
@@ -2000,10 +2000,10 @@ class Learning(BaseEstimator):
         else:
             sub_ruleset = copy.deepcopy(ruleset)
             
-        print 'Number rules: %s' % str(len(sub_ruleset))
+        print('Number rules: %s' % str(len(sub_ruleset)))
         sub_ruleset = RuleSet(filter(lambda rg: signi_test(rg, ymean, sigma, beta),
                                      sub_ruleset))
-        print 'Number rules after significant test: %s' % str(len(sub_ruleset))
+        print('Number rules after significant test: %s' % str(len(sub_ruleset)))
         
         if len(sub_ruleset) > 0:
             sub_ruleset.sort_by('crit', maximized)
