@@ -28,7 +28,15 @@ from joblib import Parallel, delayed
 Functions
 ---------
 """
+print("TEST2")
+import builtins
+def new_map(*args, **kwargs):
+    return list(builtins.map(*args, **kwargs))
+map = new_map
 
+def new_filter(*args, **kwargs):
+    return list(builtins.filter(*args, **kwargs))
+filter = new_filter
 
 def make_condition(rule):
     """
